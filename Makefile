@@ -6,17 +6,18 @@
 #    By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 14:49:28 by ccoste            #+#    #+#              #
-#    Updated: 2022/11/28 15:37:33 by ccoste           ###   ########.fr        #
+#    Updated: 2022/11/29 16:39:50 by ccoste           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC =
+SRC = ft_formats.c \
+	ft_printf.c
 
 OBJ= $(SRC:.c=.o)
 
