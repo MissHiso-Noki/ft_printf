@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_c.c                                     :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
+/*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:15 by ccoste            #+#    #+#             */
-/*   Updated: 2022/11/30 14:44:59 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/14 16:48:54 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/15 15:18:24 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_formats_c(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	write(1, &c, 1);
-	return (1);
+	write(fd, &c, 1);
 }
+
+// int main()
+// {
+// 	ft_putchar_fd('a', 1);
+// 	return (0);
+// }

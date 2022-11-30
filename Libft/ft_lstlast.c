@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_c.c                                     :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
+/*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:15 by ccoste            #+#    #+#             */
-/*   Updated: 2022/11/30 14:44:59 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/23 13:34:18 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/23 16:31:16 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_formats_c(int c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	write(1, &c, 1);
-	return (1);
+	while (lst != NULL)
+	{
+		if (!lst->next)
+		{
+			return (lst);
+		}
+		lst = lst->next;
+	}
+	return (lst);
 }

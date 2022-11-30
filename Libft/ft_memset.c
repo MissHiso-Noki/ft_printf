@@ -1,19 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_c.c                                     :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:15 by ccoste            #+#    #+#             */
-/*   Updated: 2022/11/30 14:44:59 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/08 13:21:39 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/22 13:29:24 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_formats_c(int c)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	write(1, &c, 1);
-	return (1);
+	char			*str;
+	unsigned int	i;
+
+	str = s;
+	i = 0;
+	if (s == NULL)
+	{
+		return (NULL);
+	}
+	while (i < n)
+	{
+		str[i] = c;
+		i++;
+	}
+	return (s);
 }
+
+//int main () {
+//   char str[50];
+
+//   strcpy(str,"This is string.h library function");
+//   puts(str);
+
+//   ft_memset(str,'$',11);
+//   puts(str);
+
+//   return(0);
+//}

@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_c.c                                     :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
+/*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:15 by ccoste            #+#    #+#             */
-/*   Updated: 2022/11/30 14:44:59 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/14 16:49:22 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/18 11:27:55 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_formats_c(int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	write(1, &c, 1);
-	return (1);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
+
+// int main()
+// {
+// 	ft_putendl_fd("Je suis Chloe", 1);
+// 	return (0);
+// }

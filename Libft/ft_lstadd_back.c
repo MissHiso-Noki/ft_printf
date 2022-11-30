@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_c.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
+/*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:15 by ccoste            #+#    #+#             */
-/*   Updated: 2022/11/30 14:44:59 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/23 13:38:26 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/23 18:09:07 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_formats_c(int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	write(1, &c, 1);
-	return (1);
+	t_list	*last;
+
+	if (lst)
+	{
+		if (*lst)
+		{
+			last = ft_lstlast(*lst);
+			last->next = new;
+		}
+		else
+		{
+			*lst = new;
+		}
+	}
 }

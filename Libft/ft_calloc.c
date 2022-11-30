@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_s.c                                     :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:29 by ccoste            #+#    #+#             */
-/*   Updated: 2022/11/30 17:01:40 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/14 16:21:55 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/22 14:55:14 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "libft.h"
 
-int	ft_formats_s(char *str)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int	i;
+	unsigned char	*str;
 
-	i = 0;
+	if (size != 0 && (size * nmemb) / size == !nmemb)
+	{
+		return (NULL);
+	}
+	str = malloc(nmemb * size);
+	if (!nmemb || !size)
+	{
+		return (str);
+	}
 	if (!str)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		return (NULL);
 	}
-	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-	return (i);
+	ft_bzero(str, nmemb * size);
+	return (str);
 }
+
+// int main()
+// {
+// 	printf("%p\n", ft_calloc(5, 6));
+// 	printf("%p\n", calloc(5, 6));
+// 	return (0);
+// }

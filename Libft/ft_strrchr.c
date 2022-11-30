@@ -1,32 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_s.c                                     :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:29 by ccoste            #+#    #+#             */
-/*   Updated: 2022/11/30 17:01:40 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/09 16:56:32 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/22 13:31:28 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "libft.h"
 
-int	ft_formats_s(char *str)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
 	i = 0;
-	if (!str)
+	while (s[i] != '\0')
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
 		i++;
 	}
-	return (i);
+	while (i >= 0)
+	{
+		if (s[i] == (char)c)
+		{
+			return ((char *)(s + i));
+		}
+		i--;
+	}
+	return (NULL);
 }
+
+//int main () {
+//   const char str[] = "http://www.tutorialspoint.com";
+//   const char ch = '.';
+//   char *ret;
+
+//   ret = ft_strrchr(str, ch);
+
+//   printf("String after |%c| is - |%s|\n", ch, ret);
+
+//   return(0);
+//}

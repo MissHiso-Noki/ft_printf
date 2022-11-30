@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_s.c                                     :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
+/*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:29 by ccoste            #+#    #+#             */
-/*   Updated: 2022/11/30 17:01:40 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/08 10:42:55 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/23 11:41:47 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "libft.h"
 
-int	ft_formats_s(char *str)
+int	ft_isalnum(int c)
 {
-	int	i;
-
-	i = 0;
-	if (!str)
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')
+		|| (c >= '0' && c <= '9'))
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		return (1);
 	}
-	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-	return (i);
+	return (0);
 }
+
+//int main()
+//{
+//		printf("%d\n", isalnum('-'));
+//		printf("%d\n", ft_isalnum('-'));
+//	return (0);
+//}

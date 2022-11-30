@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 13:28:46 by ccoste            #+#    #+#             */
-/*   Updated: 2022/11/29 14:59:45 by ccoste           ###   ########.fr       */
+/*   Updated: 2022/11/30 14:51:45 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	ft_printf(const char *str, ...)
 			{
 				return (-1);
 			}
-			len = len + ft_formats(args, str[i + 1]);
 			i++;
+			len = len + ft_formats(args, str[i]);
 		}
 	}
 	va_end(args);

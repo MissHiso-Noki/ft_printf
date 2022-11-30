@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_s.c                                     :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
+/*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:29 by ccoste            #+#    #+#             */
-/*   Updated: 2022/11/30 17:01:40 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/14 16:07:48 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/21 15:25:59 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "libft.h"
 
-int	ft_formats_s(char *str)
+char	*ft_strdup(const char *s)
 {
-	int	i;
+	unsigned int	sizesrc;
+	char			*dest;
+	unsigned int	i;
 
 	i = 0;
-	if (!str)
+	sizesrc = ft_strlen(s);
+	dest = malloc((sizesrc + 1) * sizeof(char));
+	if (!dest)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		return (NULL);
 	}
-	while (str[i] != '\0')
+	while (i < sizesrc)
 	{
-		write(1, &str[i], 1);
+		dest[i] = s[i];
 		i++;
 	}
-	return (i);
+	dest[i] = '\0';
+	return (dest);
 }
