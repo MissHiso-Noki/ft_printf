@@ -6,7 +6,7 @@
 #    By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 14:49:28 by ccoste            #+#    #+#              #
-#    Updated: 2022/11/30 18:00:59 by ccoste           ###   ########.fr        #
+#    Updated: 2022/12/01 17:08:08 by ccoste           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,9 @@ SRC = ft_formats.c \
 	ft_formats_c.c \
 	ft_formats_p.c \
 	ft_formats_s.c \
+	ft_formats_di.c \
+	ft_formats_u.c \
+	ft_formats_xX.c \
 	ft_printf.c
 
 OBJ= $(SRC:.c=.o)

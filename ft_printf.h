@@ -6,7 +6,7 @@
 /*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:39:39 by ccoste            #+#    #+#             */
-/*   Updated: 2022/11/30 17:55:53 by ccoste           ###   ########.fr       */
+/*   Updated: 2022/12/01 17:07:05 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,14 @@ int		ft_formats_p(unsigned long long c);
 int		clen(unsigned long long c);
 void	putnbr_fd(unsigned long long c, int fd);
 
+int		ft_formats_di(int nbr);
+
+int		ft_print_u(unsigned int nbr);
+char	*uitoa(unsigned int nbr);
+int		uitoa_lenght(unsigned int nbr);
+
+int		ft_formats_xX(unsigned int nbr, const char format);
+void	puthex(unsigned int nbr, const char format);
+int		hexlen(unsigned int nbr);
 
 #endif
