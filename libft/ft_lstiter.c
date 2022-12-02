@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_di.c                                    :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:22 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/02 10:48:30 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/23 16:42:02 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/23 16:45:19 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_formats_di(int nbr)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	char	*num;
-	int		len;
-
-	len = 0;
-	num = ft_itoa(nbr);
-	len = ft_formats_s(num);
-	free(num);
-	return (len);
+	if (!f)
+	{
+		return ;
+	}
+	while (lst != NULL)
+	{
+		(*f)(lst->content);
+		lst = lst->next;
+	}
 }

@@ -1,0 +1,7 @@
+*.o
+*.a
+*.so
+libftTester
+libft-unit-test
+libft-war-machine
+a.out

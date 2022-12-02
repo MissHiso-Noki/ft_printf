@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_di.c                                    :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:22 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/02 10:48:30 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/23 13:38:26 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/23 18:09:07 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_formats_di(int nbr)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	char	*num;
-	int		len;
+	t_list	*last;
 
-	len = 0;
-	num = ft_itoa(nbr);
-	len = ft_formats_s(num);
-	free(num);
-	return (len);
+	if (lst)
+	{
+		if (*lst)
+		{
+			last = ft_lstlast(*lst);
+			last->next = new;
+		}
+		else
+		{
+			*lst = new;
+		}
+	}
 }

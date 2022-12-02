@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_di.c                                    :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:22 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/02 10:48:30 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/09 17:11:29 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/17 13:20:24 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_formats_di(int nbr)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char	*num;
-	int		len;
+	size_t	i;
+	size_t	j;
 
-	len = 0;
-	num = ft_itoa(nbr);
-	len = ft_formats_s(num);
-	free(num);
-	return (len);
+	if (!big || !little)
+		return (NULL);
+	if (!little || !little[0])
+		return ((char *)big);
+	i = 0;
+	while (big[i] && i < len)
+	{
+		j = 0;
+		while (big[i + j] && little[j] && i + j < len
+			&& big[i + j] == little[j])
+			j++;
+		if (!little[j])
+			return ((char *)(big + i));
+		i++;
+	}
+	return (NULL);
 }

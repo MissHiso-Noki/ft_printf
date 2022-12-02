@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_s.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:29 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/02 10:48:37 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/07 13:42:36 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/22 13:31:08 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_formats_s(char *str)
+size_t	ft_strlen(const char *s)
+
 {
 	int	i;
 
 	i = 0;
-	if (!str)
+	while (s[i] != '\0')
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
 		i++;
 	}
 	return (i);
 }
+
+//int main () {
+//   char str[50];
+//   int len;
+
+//   strcpy(str, "This is tutorialspoint.com");
+
+//   len = strlen(str);
+//   printf("Length of |%s| is |%d|\n", str, len);
+
+//   return(0);
+//}

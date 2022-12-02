@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_di.c                                    :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:22 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/02 10:48:30 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/14 16:48:54 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/15 15:18:24 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_formats_di(int nbr)
+void	ft_putchar_fd(char c, int fd)
 {
-	char	*num;
-	int		len;
-
-	len = 0;
-	num = ft_itoa(nbr);
-	len = ft_formats_s(num);
-	free(num);
-	return (len);
+	write(fd, &c, 1);
 }
+
+// int main()
+// {
+// 	ft_putchar_fd('a', 1);
+// 	return (0);
+// }

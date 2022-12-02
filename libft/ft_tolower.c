@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_di.c                                    :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:22 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/02 10:48:30 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/08 15:18:15 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/22 13:32:17 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_formats_di(int nbr)
+int	ft_tolower(int c)
 {
-	char	*num;
-	int		len;
-
-	len = 0;
-	num = ft_itoa(nbr);
-	len = ft_formats_s(num);
-	free(num);
-	return (len);
+	if (c >= 'A' && c <= 'Z')
+	{
+		c = c + 32;
+	}
+	return (c);
 }
+
+//int main()
+//{
+//	printf("%d\n", tolower('B'));
+//	printf("%d\n", ft_tolower('B'));
+//	return (0);
+//}

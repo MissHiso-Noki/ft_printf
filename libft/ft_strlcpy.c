@@ -1,31 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_s.c                                     :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:29 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/02 10:48:37 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/07 14:49:18 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/17 13:40:58 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_formats_s(char *str)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+
 {
-	int	i;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
-	if (!str)
+	j = 0;
+	i = ft_strlen(src);
+	if (size != 0)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
-		i++;
+		while (src[j] != '\0' && j < (size - 1))
+		{
+			dst[j] = src[j];
+			j++;
+		}
+		dst[j] = '\0';
 	}
 	return (i);
 }
+
+// int main ()
+// {
+// 	char	dest[100];
+// 	char 	*src;
+
+// 	src = "Je suis chelo";
+
+// 	printf("%ld\n", ft_strlcpy(dest, src, 4));
+// 	printf("%s\n", dest);
+//  }

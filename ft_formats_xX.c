@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_formats_xX.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
+/*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 13:52:35 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/01 17:06:13 by ccoste           ###   ########.fr       */
+/*   Updated: 2022/12/02 10:48:43 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
 int	hexlen(unsigned int nbr)
 {

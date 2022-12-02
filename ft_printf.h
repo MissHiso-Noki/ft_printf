@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
+/*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:39:39 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/01 17:07:05 by ccoste           ###   ########.fr       */
+/*   Updated: 2022/12/02 12:49:31 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	putnbr_fd(unsigned long long c, int fd);
 
 int		ft_formats_di(int nbr);
 
-int		ft_print_u(unsigned int nbr);
+int		ft_formats_u(unsigned int nbr);
 char	*uitoa(unsigned int nbr);
 int		uitoa_lenght(unsigned int nbr);
 

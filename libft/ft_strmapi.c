@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_di.c                                    :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:22 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/02 10:48:30 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/14 16:50:05 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/18 15:51:41 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_formats_di(int nbr)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*num;
-	int		len;
+	int		i;
+	char	*str;
 
-	len = 0;
-	num = ft_itoa(nbr);
-	len = ft_formats_s(num);
-	free(num);
-	return (len);
+	i = 0;
+	str = ft_strdup(s);
+	if (!str)
+	{
+		return (NULL);
+	}
+	while (str[i] != '\0')
+	{
+		str[i] = f(i, str[i]);
+		i++;
+	}
+	return (str);
 }

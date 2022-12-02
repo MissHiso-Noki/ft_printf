@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+         #
+#    By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 14:49:28 by ccoste            #+#    #+#              #
-#    Updated: 2022/12/01 17:08:08 by ccoste           ###   ########.fr        #
+#    Updated: 2022/12/02 12:52:24 by ccoste           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,19 +29,27 @@ OBJ= $(SRC:.c=.o)
 
 HEADER_DIR = .
 
+LIBFT= libft
+
 all: $(NAME)
 
-%.o : %.c
-	$(CC) -c $(CFLAGS) $< -o $@ -I $(HEADER_DIR)
+$(NAME) : $(OBJ) $(HEADER_DIR)
+		make -C $(LIBFT)
+		cp libft/libft.a .
+		mv libft.a $(NAME)
+		$(CC) $(CFLAGS) -c $(SRC)
+		ar -rcs $(NAME) $(OBJ)
 
-$(NAME) : $(OBJ)
-		ar rcs $(NAME) $(OBJ)
+%.o : %.c
+	$(CC) -o $@ -c $^
 
 clean :
 	rm -rf $(OBJ)
+	make clean -C $(LIBFT)
 
-fclean :
+fclean : clean
 	rm -rf $(NAME)
+	rm -rf $(LIBFT)/libft.a
 
 re : fclean all
 

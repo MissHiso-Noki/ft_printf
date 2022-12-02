@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_di.c                                    :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:22 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/02 10:48:30 by ccoste           ###   ########.fr       */
+/*   Created: 2022/11/08 12:57:02 by ccoste            #+#    #+#             */
+/*   Updated: 2022/11/22 14:55:40 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_formats_di(int nbr)
+int	ft_isascii(int c)
 {
-	char	*num;
-	int		len;
-
-	len = 0;
-	num = ft_itoa(nbr);
-	len = ft_formats_s(num);
-	free(num);
-	return (len);
+	if (c >= 0 && c <= 127)
+	{
+		return (1);
+	}
+	return (0);
 }
+
+//int main()
+//{
+//		printf("%d\n", isascii('网'));
+//		printf("%d\n", ft_isascii('网'));
+//	return (0);
+//}

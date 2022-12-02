@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_formats_p.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccoste < ccoste@student.42.fr>             +#+  +:+       +#+        */
+/*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 13:52:25 by ccoste            #+#    #+#             */
-/*   Updated: 2022/11/30 17:55:49 by ccoste           ###   ########.fr       */
+/*   Updated: 2022/12/02 11:08:45 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
 int	clen(unsigned long long c)
 {
@@ -37,10 +36,9 @@ void	putnbr_fd(unsigned long long c, int fd)
 	{
 		if (c >= 10)
 		{
-			putnbr_fd((c / 10), fd);
-			ft_putchar_fd(('0' + (c % 10)), fd);
+			ft_putchar_fd(('a' + (c - 10)), fd);
 		}
-		if else (c < 10 && c >= 0)
+		else if (c < 10)
 		{
 			ft_putchar_fd(('0' + c), fd);
 		}
@@ -54,14 +52,14 @@ int	ft_formats_p(unsigned long long c)
 	len = 0;
 	if (!c)
 	{
-		ft_putstr("(nil)");
+		ft_putstr_fd("(nil)", 1);
 		return (5);
 	}
 	else
 	{
-		len = len + ft_formats_c("0x");
+		len = len + ft_formats_s("0x");
 		putnbr_fd(c, 1);
-		len = len + clen(c)
+		len = len + clen(c);
 	}
 	return (len);
 }
