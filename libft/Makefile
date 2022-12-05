@@ -6,7 +6,7 @@
 #    By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 13:41:19 by ccoste            #+#    #+#              #
-#    Updated: 2022/12/02 12:49:06 by ccoste           ###   ########.fr        #
+#    Updated: 2022/11/28 13:37:36 by ccoste           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ OBJ= $(SRC:.c=.o)
 
 BONUS_OBJ= $(SRC_BONUS:.c=.o)
 
-HEADER_DIR = ..
+HEADER_DIR = .
 
 all: $(NAME)
 

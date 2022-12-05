@@ -1,66 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_u.c                                     :+:      :+:    :+:   */
+/*   ft_formats_ptr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:32 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/02 10:54:46 by ccoste           ###   ########.fr       */
+/*   Created: 2022/12/05 15:16:28 by ccoste            #+#    #+#             */
+/*   Updated: 2022/12/05 15:57:35 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
-int	uitoa_lenght(unsigned int nbr)
+int	ft_ptrlen(unsigned long long ptr)
 {
 	int	len;
 
 	len = 0;
-	if (nbr == 0)
-		len = 1;
-	while (nbr)
+	while (ptr != 0)
 	{
+		ptr /= 16;
 		len++;
-		nbr /= 10;
 	}
 	return (len);
 }
 
-char	*uitoa(unsigned int nbr)
+void	ft_putptr(unsigned long long ptr)
 {
-	int		len;
-	char	*str;
-
-	len = uitoa_lenght(nbr);
-	str = ft_calloc((len + 1), sizeof(char));
-	if (!str)
-		return (NULL);
-	str[len] = '\0';
-	while (len > 0)
+	if (ptr >= 16)
 	{
-		str[len - 1] = (nbr % 10) + '0';
-		nbr /= 10;
-		len--;
-	}
-	return (str);
-}
-
-int	ft_formats_u(unsigned int nbr)
-{
-	int		len;
-	char	*num;
-
-	len = 0;
-	if (nbr == 0)
-	{
-		len = len + ft_formats_c('0');
+		ft_putptr(ptr / 16);
+		ft_putptr(ptr % 16);
 	}
 	else
 	{
-		num = uitoa(nbr);
-		len = len + ft_formats_s(num);
-		free(num);
+		if (ptr < 10)
+			ft_putchar_fd((ptr + '0'), 1);
+		else
+			ft_putchar_fd((ptr - 10 + 'a'), 1);
+	}
+}
+
+int	ft_print_ptr(unsigned long long ptr)
+{
+	int	len;
+
+	len = 0;
+	if (!ptr)
+	{
+		ft_putstr("(nil)");
+		return (5);
+	}
+	else
+	{
+		len = len + ft_print_str("0x");
+		ft_putptr(ptr);
+		len = len + ft_ptrlen(ptr);
 	}
 	return (len);
 }

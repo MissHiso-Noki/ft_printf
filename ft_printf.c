@@ -5,18 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 13:28:46 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/02 11:26:12 by ccoste           ###   ########.fr       */
+/*   Created: 2022/12/05 11:33:27 by ccoste            #+#    #+#             */
+/*   Updated: 2022/12/05 16:01:04 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 int	ft_printf(const char *str, ...)
 {
-	int		i;
 	va_list	args;
 	int		len;
+	int		i;
 
 	i = 0;
 	len = 0;
@@ -29,11 +30,11 @@ int	ft_printf(const char *str, ...)
 		{
 			if (!str[i + 1])
 				return (-1);
+			len = len + ft_formats(args, str[i + 1]);
 			i++;
-			len = len + ft_formats(args, str[i]);
 		}
 		else
-			len = len + ft_formats_c(str[i]);
+			len = len + ft_print_char(str[i]);
 		i++;
 	}
 	va_end(args);
@@ -42,10 +43,7 @@ int	ft_printf(const char *str, ...)
 
 // int main()
 // {
-// 	int	str;
-
-// 	str = 10;
-// 	printf("%d\n", printf("%x%% hello %s you %d\n%", str, "thank", 2));
-// 	ft_printf("%d\n", ft_printf("%X%% hello %s you %d\n%", str, "thank", 2));
+// 	printf("%d\n", printf("test"));
+// 	ft_printf("%d\n", ft_printf("test"));
 // 	return (0);
 // }

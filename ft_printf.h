@@ -5,39 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 15:39:39 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/02 12:49:31 by ccoste           ###   ########.fr       */
+/*   Created: 2022/12/05 11:35:08 by ccoste            #+#    #+#             */
+/*   Updated: 2022/12/05 16:16:08 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft.h"
 # include <stdarg.h>
 # include <stdio.h>
 # include <unistd.h>
 
+int		ft_formats(va_list args, const char formats);
+
 int		ft_printf(const char *str, ...);
 
-int		ft_formats(va_list args, const char str);
+int		ft_print_char(int c);
+int		ft_print_str(char *str);
+void	ft_putstr(char *str);
 
-int		ft_formats_c(int c);
+int		ft_print_ptr(unsigned long long ptr);
+int		ft_ptrlen(unsigned long long ptr);
+void	ft_putptr(unsigned long long ptr);
 
-int		ft_formats_s(char *str);
-
-int		ft_formats_p(unsigned long long c);
-int		clen(unsigned long long c);
-void	putnbr_fd(unsigned long long c, int fd);
-
-int		ft_formats_di(int nbr);
-
-int		ft_formats_u(unsigned int nbr);
-char	*uitoa(unsigned int nbr);
+int		ft_print_nbr(int nbr);
 int		uitoa_lenght(unsigned int nbr);
+char	*ft_uitoa(unsigned int nbr);
+int		ft_print_usgn(unsigned int nbr);
 
-int		ft_formats_xX(unsigned int nbr, const char format);
-void	puthex(unsigned int nbr, const char format);
-int		hexlen(unsigned int nbr);
+int		ft_print_hex(unsigned int nbr, const char format);
+int		ft_hexlen(unsigned int nbr);
+void	ft_puthex(unsigned int nbr, const char format);
 
 #endif

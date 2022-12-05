@@ -6,7 +6,7 @@
 /*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:59:42 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/05 16:13:33 by ccoste           ###   ########.fr       */
+/*   Updated: 2022/12/05 16:17:33 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <bsd/string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "ft_printf.h"
 
 typedef struct s_list
 {

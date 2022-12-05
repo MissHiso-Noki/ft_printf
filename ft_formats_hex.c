@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_xX.c                                    :+:      :+:    :+:   */
+/*   ft_formats_hex.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccoste <ccoste@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:52:35 by ccoste            #+#    #+#             */
-/*   Updated: 2022/12/02 10:48:43 by ccoste           ###   ########.fr       */
+/*   Created: 2022/12/05 15:48:47 by ccoste            #+#    #+#             */
+/*   Updated: 2022/12/05 15:57:43 by ccoste           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
-int	hexlen(unsigned int nbr)
+int	ft_hexlen(unsigned int nbr)
 {
 	int	len;
 
@@ -20,17 +21,17 @@ int	hexlen(unsigned int nbr)
 	while (nbr)
 	{
 		len++;
-		nbr = nbr / 16;
+		nbr /= 16;
 	}
 	return (len);
 }
 
-void	puthex(unsigned int nbr, const char format)
+void	ft_puthex(unsigned int nbr, const char format)
 {
 	if (nbr >= 16)
 	{
-		puthex(nbr / 16, format);
-		puthex(nbr % 16, format);
+		ft_puthex(nbr / 16, format);
+		ft_puthex(nbr % 16, format);
 	}
 	else
 	{
@@ -43,7 +44,7 @@ void	puthex(unsigned int nbr, const char format)
 	}
 }
 
-int	ft_formats_xX(unsigned int nbr, const char format)
+int	ft_print_hex(unsigned int nbr, const char format)
 {
 	int	print_len;
 
@@ -53,7 +54,7 @@ int	ft_formats_xX(unsigned int nbr, const char format)
 		write(1, "0", 1);
 		return (1);
 	}
-	puthex(nbr, format);
-	print_len = print_len + hexlen(nbr);
+	ft_puthex(nbr, format);
+	print_len += ft_hexlen(nbr);
 	return (print_len);
 }
